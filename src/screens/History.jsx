@@ -12,6 +12,8 @@ export default function History() {
   const [loadingDetails, setLoadingDetails] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
+  const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
+
   useEffect(() => {
     // Retrieve logged-in user from localStorage
     const savedUser = localStorage.getItem('citation_ai_user');
@@ -53,7 +55,6 @@ export default function History() {
     if (!paperDetails[paperId]) {
       setLoadingDetails(true);
       try {
-        const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
         const response = await fetch(`${API_URL}/api/results/${paperId}`);
         const data = await response.json();
         setPaperDetails(prev => ({ ...prev, [paperId]: data.claims || [] }));

@@ -5,6 +5,8 @@ export default function Search() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
+
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -13,7 +15,6 @@ export default function Search() {
     setIsLoading(true);
     
     try {
-      const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
       // Calls your Express backend to safely query SerpAPI without exposing your API key
       const response = await fetch(`${API_URL}/api/search?q=${encodeURIComponent(query)}`);
       const data = await response.json();

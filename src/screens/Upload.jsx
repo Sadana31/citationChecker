@@ -78,6 +78,8 @@ export default function Upload() {
   
   const pollInterval = useRef(null);
   const progressTimer = useRef(null);
+  const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
+
 
   useEffect(() => {
     if (isLoading) {
@@ -118,10 +120,8 @@ export default function Upload() {
 
     const formData = new FormData();
     formData.append('paper', file);
-    const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
     try {
-      const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
       const response = await fetch(`${API_URL}/api/upload`, {
         method: 'POST',
@@ -147,7 +147,6 @@ export default function Upload() {
 
     pollInterval.current = setInterval(async () => {
       try {
-        const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
         const res = await fetch(`${API_URL}/api/results/${paperId}`);
         const data = await res.json();
@@ -221,7 +220,6 @@ export default function Upload() {
     setSearchingId(row.id);
     try {
       const searchQuery = row.title !== "Unknown Title" ? row.title : row.claim.substring(0, 80);
-      const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
       const res = await fetch(`${API_URL}/api/search?q=${encodeURIComponent(searchQuery)}`);
       const data = await res.json();
 
