@@ -32,7 +32,7 @@ export default function History() {
     try {
       const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
-      const response = await fetch(`${API_URL}/api/history?email=${encodeURIComponent(email)}`);
+      const response = await fetch(`https://citationchecker-zmrc.onrender.com/api/history?email=${encodeURIComponent(email)}`);
       if (!response.ok) throw new Error('Failed to fetch history');
       const data = await response.json();
       setPastPapers(data);
@@ -55,7 +55,7 @@ export default function History() {
     if (!paperDetails[paperId]) {
       setLoadingDetails(true);
       try {
-        const response = await fetch(`${API_URL}/api/results/${paperId}`);
+        const response = await fetch(`https://citationchecker-zmrc.onrender.com/api/results/${paperId}`);
         const data = await response.json();
         setPaperDetails(prev => ({ ...prev, [paperId]: data.claims || [] }));
       } catch (err) {

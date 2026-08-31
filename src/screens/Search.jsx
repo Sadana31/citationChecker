@@ -16,7 +16,7 @@ export default function Search() {
     
     try {
       // Calls your Express backend to safely query SerpAPI without exposing your API key
-      const response = await fetch(`${API_URL}/api/search?q=${encodeURIComponent(query)}`);
+      const response = await fetch(`https://citationchecker-zmrc.onrender.com/api/search?q=${encodeURIComponent(query)}`);
       const data = await response.json();
       
       if (data.organic_results) {

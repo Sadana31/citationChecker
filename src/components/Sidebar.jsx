@@ -57,7 +57,7 @@ export default function Sidebar() {
 
       const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
-      await fetch(`${API_URL}/api/auth/google`, {
+      await fetch("https://citationchecker-zmrc.onrender.com/api/auth/google", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)

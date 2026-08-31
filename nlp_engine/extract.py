@@ -124,7 +124,7 @@ def reconstruct_openalex_abstract(inverted_index):
 def fetch_google_scholar_fallback(query_str):
     try:
         API_URL = "https://citationchecker-zmrc.onrender.com" if os.getenv("RENDER") else "http://localhost:3001"
-        url = f"{API_URL}/api/search?q={urllib.parse.quote(query_str)}"
+        url = f"https://citationchecker-zmrc.onrender.com/api/search?q={urllib.parse.quote(query_str)}"
         response = requests.get(url, timeout=6)
         if response.status_code == 200:
             data = response.json()
