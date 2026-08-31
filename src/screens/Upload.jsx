@@ -145,7 +145,7 @@ export default function Upload() {
 
     pollInterval.current = setInterval(async () => {
       try {
-        const res = await fetch(`{API_URL}/api/results/${paperId}`);
+        const res = await fetch(`${API_URL}/api/results/${paperId}`);
         const data = await res.json();
 
         if (data.status === 'completed') {
