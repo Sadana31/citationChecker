@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  transition-property: background-color, border-color, color;
+  transition-duration: 300ms;
+}
+
+/* Global Dark Mode Base Colors (Soft & Easy on the eyes) */
+.dark body, 
+html.dark body {
+  background-color: #030712; /* Deep slate background */
+  color: #cbd5e1; /* Soft gray (slate-300) for standard body text */
+}
+
+/* Global Headings: Soft ice-blue/white instead of blinding white */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important; /* Slate 100 */
+}
+
+/* Global Paragraphs & Spans: Comfortable readable muted slate */
+.dark p, .dark span:not([class*="text-"]):not([class*="bg-"]) {
+  color: #94a3b8 !important; /* Slate 400 */
+}
+
+/* Make button backgrounds lighter and more distinct in dark mode */
+.dark button, 
+html.dark button {
+  background-color: #3d5375 !important; /* Lighter slate-800 background */
+  border-color: #334155 !important;    /* Slightly lighter border */
+  color: #f1f5f9 !important;           /* Crisp bright text */
+}
+
+.dark button:hover, 
+html.dark button:hover {
+  background-color: #334155 !important; /* Even lighter on hover (slate-700) */
+}
+
+/* Kill table row hover background change completely in dark mode */
+.dark tr:hover, 
+html.dark tr:hover,
+.dark tbody tr:hover,
+html.dark tbody tr:hover {
+  background-color: transparent !important;
+}
+
+/* Fix dark mode contrast for buttons, toggles, and muted labels */
+.dark button, 
+html.dark button {
+  color: #f1f5f9; /* Soft slate-100 for crisp text on dark buttons */
+}
+
+.dark button span, 
+html.dark button p {
+  color: #e2e8f0 !important; /* Soft slate-200 for internal button text */
+}
+
+/* Specifically target dark mode toggle buttons or inactive switches */
+.dark input[type="checkbox"], 
+.dark .toggle-thumb {
+  background-color: #38bdf8 !important; /* Vibrant sky blue accent for contrast */
+}
+
+/* Cards & Containers */
+.dark .bg-white,
+.dark div[class*="bg-white"] {
+  background-color: #0f172a !important; /* Slate 900 */
+  border-color: #1e293b !important; /* Slate 800 */
+}
+
+/* --- ENHANCED DARK MODE TABLE STYLING --- */
+.dark table, 
+html.dark table {
+  background-color: #0f172a !important; /* Rich slate-900 container */
+  border-color: #1e293b !important;
+}
+
+.dark th, 
+html.dark th {
+  background-color: #090d16 !important; /* Darker header contrast */
+  color: #94a3b8 !important;            /* Muted slate for column titles */
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.dark tr, 
+html.dark tr {
+  border-bottom: 1px solid #1e293b !important;
+  transition: background-color 0.2s ease;
+}
+
+
+.dark td, 
+html.dark td {
+  color: #cbd5e1 !important; /* Crisp, readable soft-white body text for claims */
+  border-color: #1e293b !important;
+}
+
+/* Make source titles stand out nicely in a soft ice blue */
+.dark td a, 
+.dark td .source-title,
+html.dark td a {
+  color: #38bdf8 !important; /* Bright sky blue for matched sources */
+}
+
+/* Make secondary author names/metadata easily visible */
+.dark td span, 
+.dark td p.text-xs, 
+html.dark td span {
+  color: #94a3b8 !important;
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(-5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-alt {
+  animation: float-reverse 7s ease-in-out infinite;
+}
