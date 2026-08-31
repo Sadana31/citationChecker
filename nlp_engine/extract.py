@@ -15,7 +15,20 @@ import spacy
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, logging
 
+
 logging.set_verbosity_error()
+
+Python
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Find the root directory (one level up from nlp_engine/)
+env_path = Path(__file__).resolve().parent.parent / '.env'
+load_dotenv(dotenv_path=env_path)
+
+# Retrieve the key securely from the root .env file
+OPENALEX_API_KEY = os.getenv("OPENALEX_API_KEY")
 
 def log(message):
     sys.stderr.write(message + "\n")
@@ -142,7 +155,7 @@ def fetch_source_metadata(ref_text, claim_text=""):
     if not clean_query:
         return {"abstract": "Source query invalid.", "title": "Unknown Title", "author": "Unknown Author"}
         
-    OPENALEX_API_KEY = "sabNi4ria6xp7IrXWkzqf5"
+
     headers = {"User-Agent": "CitationChecker/1.0 (mailto:academic_verifier@example.com)"}
     
     # ATTEMPT 1: OpenAlex
