@@ -367,14 +367,19 @@ Display Verification Dashboard
 ### Welcome
 Landing page for the CitationChecker application.
 
+![alt text](image-1.png)
+
 ### Upload Paper
 Allows users to upload a PDF and view the citation verification results, confidence scores, source information, and evidence context.
+
+![alt text](image-2.png)
 
 ### History
 Displays previously processed manuscripts and their processing information.
 
 ### Search Sources
 Allows users to search academic sources using the Google Scholar and SerpAPI integration.
+![alt text](image-3.png)
 
 ## Author
 
