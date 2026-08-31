@@ -1,0 +1,7 @@
+PyMuPDF
+spacy
+torch
+transformers
+sentence-transformers
+requests
+python-dotenv
