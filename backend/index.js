@@ -13,6 +13,8 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 // 1. Initialize SQLite Database
 const dbPath = path.resolve(__dirname, 'database.sqlite');
 const db = new sqlite3.Database(dbPath, (err) => {
@@ -177,7 +179,7 @@ app.post('/api/upload', upload.single('paper'), (req, res) => {
 // 6. SerpAPI Route
 app.get('/api/search', async (req, res) => {
     const query = req.query.q;
-    const apiKey = '1334a24aca0061fee79c3a45e68ea0ea008d7e6b5d0c13e3acfe43d50a912751'; 
+    const apiKey = process.env.SERPAPI_KEY;
     
     try {
         const response = await axios.get(`https://serpapi.com/search.json?engine=google_scholar&q=${encodeURIComponent(query)}&api_key=${apiKey}`);

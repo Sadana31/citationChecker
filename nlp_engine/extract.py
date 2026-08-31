@@ -18,7 +18,6 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, logg
 
 logging.set_verbosity_error()
 
-Python
 import os
 from pathlib import Path
 from dotenv import load_dotenv
