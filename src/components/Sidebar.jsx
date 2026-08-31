@@ -40,7 +40,7 @@ export default function Sidebar() {
     }
   };
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+  const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
   const handleLoginSuccess = async (credentialResponse) => {
     try {

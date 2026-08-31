@@ -118,7 +118,7 @@ export default function Upload() {
 
     const formData = new FormData();
     formData.append('paper', file);
-    const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+    const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
     try {
       const response = await fetch(`${API_URL}/api/upload`, {
@@ -217,7 +217,7 @@ export default function Upload() {
     setSearchingId(row.id);
     try {
       const searchQuery = row.title !== "Unknown Title" ? row.title : row.claim.substring(0, 80);
-      const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+      const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
       const res = await fetch(`${API_URL}/api/search?q=${encodeURIComponent(searchQuery)}`);
       const data = await res.json();
 
