@@ -40,7 +40,6 @@ export default function Sidebar() {
     }
   };
 
-  const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
   const handleLoginSuccess = async (credentialResponse) => {
     try {
@@ -55,6 +54,8 @@ export default function Sidebar() {
 
       setUser(userData);
       localStorage.setItem('citation_ai_user', JSON.stringify(userData));
+
+      const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
       await fetch(`${API_URL}/api/auth/google`, {
         method: 'POST',

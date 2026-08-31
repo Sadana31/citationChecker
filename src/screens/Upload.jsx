@@ -121,6 +121,8 @@ export default function Upload() {
     const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
 
     try {
+      const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
+
       const response = await fetch(`${API_URL}/api/upload`, {
         method: 'POST',
         body: formData,
@@ -145,6 +147,8 @@ export default function Upload() {
 
     pollInterval.current = setInterval(async () => {
       try {
+        const API_URL = "https://citationchecker-zmrc.onrender.com" || 'http://localhost:3001';
+
         const res = await fetch(`${API_URL}/api/results/${paperId}`);
         const data = await res.json();
 
