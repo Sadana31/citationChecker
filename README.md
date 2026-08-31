@@ -373,9 +373,13 @@ Landing page for the CitationChecker application.
 Allows users to upload a PDF and view the citation verification results, confidence scores, source information, and evidence context.
 
 ![alt text](image-2.png)
+<img width="2264" height="1404" alt="Screenshot 2026-08-31 151053" src="https://github.com/user-attachments/assets/ab4935ec-10a1-4907-8a39-c9a6e153924d" />
+
 
 ### History
 Displays previously processed manuscripts and their processing information.
+<img width="2334" height="880" alt="image" src="https://github.com/user-attachments/assets/52d37d5b-d949-43c1-83ed-f90163925af5" />
+
 
 ### Search Sources
 Allows users to search academic sources using the Google Scholar and SerpAPI integration.
