@@ -242,7 +242,7 @@ export default function Upload() {
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600">
           Manuscript Verification
         </h2>
-        <p className="text-slate-500 font-medium">Upload your document to initiate the NLP extraction pipeline.</p>
+        <p className="text-slate-500 font-medium">Upload your document to initiate the NLP extraction pipeline (Entire process takes around 5 minutes).</p>
       </header>
 
       <div className="relative group shrink-0 max-w-4xl mx-auto w-full">

@@ -108,7 +108,7 @@ export default function Sidebar() {
                   <FileText size={20} />
                 </div>
                 <span className="font-extrabold text-lg text-slate-900 dark:text-white tracking-wide">
-                  CitationAI
+                  CitationChecker
                 </span>
               </div>
             )}

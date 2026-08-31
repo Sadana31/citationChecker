@@ -19,7 +19,7 @@ export default function Welcome() {
     {
       icon: <BrainCircuit size={24} className="text-purple-500" />,
       title: '3. NLI Verification',
-      description: 'The DeBERTa-v3 Cross-Encoder computes logical entailment to verify if the source abstract actually supports the claim.',
+      description: 'The Sentence Transformer model computes semantic similarity to verify if the source abstract actually supports the claim.',
       delay: 'delay-300'
     }
   ];
