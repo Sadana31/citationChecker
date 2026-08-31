@@ -118,9 +118,10 @@ export default function Upload() {
 
     const formData = new FormData();
     formData.append('paper', file);
+    const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
 
     try {
-      const response = await fetch('http://localhost:3001/api/upload', {
+      const response = await fetch(`${API_URL}/api/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -144,7 +145,7 @@ export default function Upload() {
 
     pollInterval.current = setInterval(async () => {
       try {
-        const res = await fetch(`http://localhost:3001/api/results/${paperId}`);
+        const res = await fetch(`{API_URL}/api/results/${paperId}`);
         const data = await res.json();
 
         if (data.status === 'completed') {
@@ -216,7 +217,8 @@ export default function Upload() {
     setSearchingId(row.id);
     try {
       const searchQuery = row.title !== "Unknown Title" ? row.title : row.claim.substring(0, 80);
-      const res = await fetch(`http://localhost:3001/api/search?q=${encodeURIComponent(searchQuery)}`);
+      const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+      const res = await fetch(`${API_URL}/api/search?q=${encodeURIComponent(searchQuery)}`);
       const data = await res.json();
 
       const organic = data.organic_results || data.organic;

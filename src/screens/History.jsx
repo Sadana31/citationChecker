@@ -25,9 +25,11 @@ export default function History() {
     }
   }, []);
 
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+
   const fetchHistory = async (email) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/history?email=${encodeURIComponent(email)}`);
+      const response = await fetch(`${API_URL}/api/history?email=${encodeURIComponent(email)}`);
       if (!response.ok) throw new Error('Failed to fetch history');
       const data = await response.json();
       setPastPapers(data);
@@ -50,7 +52,7 @@ export default function History() {
     if (!paperDetails[paperId]) {
       setLoadingDetails(true);
       try {
-        const response = await fetch(`http://localhost:3001/api/results/${paperId}`);
+        const response = await fetch(`${API_URL}/api/results/${paperId}`);
         const data = await response.json();
         setPaperDetails(prev => ({ ...prev, [paperId]: data.claims || [] }));
       } catch (err) {

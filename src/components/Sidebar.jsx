@@ -40,6 +40,8 @@ export default function Sidebar() {
     }
   };
 
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+
   const handleLoginSuccess = async (credentialResponse) => {
     try {
       const decoded = JSON.parse(atob(credentialResponse.credential.split('.')[1]));
@@ -54,7 +56,7 @@ export default function Sidebar() {
       setUser(userData);
       localStorage.setItem('citation_ai_user', JSON.stringify(userData));
 
-      await fetch('http://localhost:3001/api/auth/google', {
+      await fetch(`${API_URL}/api/auth/google`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)

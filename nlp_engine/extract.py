@@ -120,9 +120,10 @@ def reconstruct_openalex_abstract(inverted_index):
     word_list.sort(key=lambda x: x[0])
     return " ".join([item[1] for item in word_list])
 
+
 def fetch_google_scholar_fallback(query_str):
     try:
-        url = f"http://localhost:3001/api/search?q={urllib.parse.quote(query_str)}"
+        url = f"{API_URL}/api/search?q={urllib.parse.quote(query_str)}"
         response = requests.get(url, timeout=6)
         if response.status_code == 200:
             data = response.json()
