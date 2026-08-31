@@ -129,7 +129,9 @@ app.post('/api/upload', upload.single('paper'), (req, res) => {
             paperId: newPaperId
         });
 
-        const pythonExecutable = path.join(__dirname, '../nlp_engine/venv/Scripts/python.exe');
+        const pythonExecutable = process.platform === 'win32'
+            ? path.join(__dirname, '../nlp_engine/venv/Scripts/python.exe')
+            : path.join(__dirname, '../nlp_engine/venv/bin/python')
         const scriptPath = path.join(__dirname, '../nlp_engine/extract.py');
         
         const pythonProcess = spawn(pythonExecutable, [scriptPath, uploadedFilePath]);
